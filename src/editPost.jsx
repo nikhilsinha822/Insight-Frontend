@@ -10,22 +10,24 @@ const EditPost = () => {
   const [editTitle, setEditTitle] = useState("");
   const [editBody, setEditBody] = useState("");
   const { id } = useParams();
-  const {posts,setPosts} = useContext(DataContext)
-  const post = posts.find((post) => post.id.toString() === id);
+  const {posts, setPosts} = useContext(DataContext)
+  const post = posts.find((post) => post._id.toString() === id);
   const Navigate = useNavigate();
+
   useEffect(() => {
     if (post) {
       setEditTitle(post.title);
       setEditBody(post.body);
     }
   }, [post, setEditTitle, setEditBody]);
-  const handleEdit = async (id) => {
+
+  const handleEdit = async (_id) => {
     const datetime = format(new Date(), "MMMM dd, yyyy pp");
-    const updatedPost = { id, title: editTitle, datetime, body: editBody };
+    const updatedPost = { _id , title: editTitle, datetime, body: editBody };
     try {
       const response = await api.put(`/posts/${id}`, updatedPost);
       setPosts(
-        posts.map((post) => (post.id === id ? { ...response.data } : post))
+        posts.map((post) => (post._id === id ? { ...response.data } : post))
       );
       setEditTitle("");
       setEditBody("");
@@ -55,7 +57,7 @@ const EditPost = () => {
               value={editBody}
               onChange={(e) => setEditBody(e.target.value)}
             />
-            <button type="submit" onClick={() => handleEdit(post.id)}>
+            <button type="submit" onClick={() => handleEdit(post._id)}>
               Submit
             </button>
           </form>

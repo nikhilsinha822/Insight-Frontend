@@ -8,13 +8,14 @@ import DataContext from "./context/DataContext";
 const PostPage = () => {
   const { id } = useParams();
   const { posts, setPosts } = useContext(DataContext)
-  const post = posts.find((post) => post.id.toString() === id);
+  const post = posts.find((post) => post._id.toString() === id);
   const Navigate = useNavigate();
   const handleDelete = async (id) => {
     try {
       await api.delete(`/posts/${id}`);
-      const postList = posts.filter((post) => post.id !== id);
-      setPosts(postList);
+      setPosts(
+        posts.filter((post) => post._id !== id)
+      );
       Navigate("/");
     } catch (err) {
       console.log(`Error: ${err.message}`);
@@ -28,11 +29,11 @@ const PostPage = () => {
             <h2>{post.title}</h2>
             <p className="postDate">{post.datetime}</p>
             <p className="postBody">{post.body}</p>
-            <Link to={`/edit/${post.id}`}>
+            <Link to={`/edit/${post._id}`}>
               <button className="editButton">Edit Post</button>
             </Link>
             <button
-              onClick={() => handleDelete(post.id)}
+              onClick={() => handleDelete(post._id)}
               className="deleteButton"
             >
               Delete Post

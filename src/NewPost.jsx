@@ -14,12 +14,12 @@ const NewPost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const id = posts.length ? posts[posts.length - 1].id + 1 : 1;
     const datetime = format(new Date(), "MMMM dd, yyyy pp");
-    const newPost = { id, title: postTitle, body: postBody, datetime };
+    const newPost = {title: postTitle, body: postBody, datetime };
     try {
-      const response = await api.post("/posts", newPost);
-      const allPosts = [...posts, response.data];
+      const res = await api.post("/posts", newPost);
+      const _id = res.data.id
+      const allPosts = [...posts, {...newPost, _id}];
       setPosts(allPosts);
       setPostTitle("");
       setPostBody("");

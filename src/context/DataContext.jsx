@@ -3,6 +3,8 @@ import useWindowSize from "../hooks/useWindowSize";
 import useAxiosFetch from "../hooks/useAxiosFetch";
 
 const DataContext = createContext({});
+const TEST_URL="http://192.168.230.84:3500"
+const WORK_URL="https://tt-lbu6.onrender.com"
 
 export const DataProvider = ({children}) => {
   const [search, setSearch] = useState("");
@@ -10,7 +12,7 @@ export const DataProvider = ({children}) => {
   const [posts, setPosts] = useState([]);
   const { width } = useWindowSize();
   const { data, fetchError, isLoading } = useAxiosFetch(
-    "https://tt-hn25.onrender.com/posts"
+    `${WORK_URL}/posts`
   );
 
   useEffect(() => {
