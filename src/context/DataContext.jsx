@@ -10,7 +10,7 @@ export const DataProvider = ({children}) => {
   const [posts, setPosts] = useState([]);
   const { width } = useWindowSize();
   const { data, fetchError, isLoading } = useAxiosFetch(
-    "http://localhost:3500/posts"
+    "https://tt-hn25.onrender.com/posts"
   );
 
   useEffect(() => {
