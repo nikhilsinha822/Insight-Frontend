@@ -12,7 +12,7 @@ export const DataProvider = ({children}) => {
   const [posts, setPosts] = useState([]);
   const { width } = useWindowSize();
   const { data, fetchError, isLoading } = useAxiosFetch(
-    `${TEST_URL}/posts`
+    `${WORK_URL}/posts`
   );
 
   useEffect(() => {
