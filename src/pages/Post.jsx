@@ -1,9 +1,11 @@
 import { useParams, Link } from "react-router-dom";
 import { useContext } from "react";
-import api from "./api/post"
+import api from "../api/post"
 import { useNavigate } from "react-router-dom";
-import DataContext from "./context/DataContext";
-
+import DataContext from "../context/DataContext";
+import { MdDeleteOutline } from "react-icons/md";
+import { HiPencil } from "react-icons/hi"
+import "./post.css"
 
 const PostPage = () => {
   const { id } = useParams();
@@ -28,16 +30,21 @@ const PostPage = () => {
           <>
             <h2>{post.title}</h2>
             <p className="postDate">{post.datetime}</p>
-            <p className="postBody">{post.body}</p>
-            <Link to={`/edit/${post._id}`}>
-              <button className="editButton">Edit Post</button>
-            </Link>
+            <button className="editButton">
+              <HiPencil size="1.7rem" />
+            </button>
             <button
               onClick={() => handleDelete(post._id)}
               className="deleteButton"
             >
-              Delete Post
+              <MdDeleteOutline size="1.7rem" />
             </button>
+
+            <p className="postBody">{post.body}</p>
+            <Link to={`/edit/${post._id}`}>
+
+            </Link>
+
           </>
         ) : (
           <>

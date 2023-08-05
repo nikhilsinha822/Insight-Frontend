@@ -1,13 +1,13 @@
-import Header from "./Header";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Header from "./Header/Header";
+import Navbar from "./navbar/Navbar";
+import Footer from "./Footer/Footer";
 import { Outlet } from "react-router";
 
 
 const Layout = () => {
   return (
     <>
-      <Header title="React.js Blog"/>
+      <Header/>
       <Navbar />
       <Outlet />
       <Footer />

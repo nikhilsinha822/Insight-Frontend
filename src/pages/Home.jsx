@@ -1,6 +1,6 @@
-import Feed from "./feed";
+import Feed from "../components/feed";
 import { useContext } from "react";
-import DataContext from "./context/DataContext";
+import DataContext from "../context/DataContext";
 
 const Home = () => {
   const {searchResults, fetchError, isLoading} = useContext(DataContext);

@@ -1,11 +1,11 @@
-import Home from "./Home";
-import NewPost from "./NewPost";
-import PostPage from "./PostPage";
-import Missing from "./Missing";
+import Home from "./pages/Home";
+import NewPost from "./pages/NewPost";
+import PostPage from "./pages/Post";
+import Missing from "./pages/Missing";
 import { Route, Routes } from "react-router-dom";
-import About from "./About";
-import Layout from "./layout";
-import EditPost from "./editPost";
+import About from "./components/About/About";
+import Layout from "./components/layout";
+import EditPost from "./pages/editPost";
 import { DataProvider } from "./context/DataContext";
 
 function App() {

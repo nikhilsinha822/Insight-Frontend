@@ -1,4 +1,4 @@
-import Post from './Post'
+import Post from './Post/post'
 const Feed = ({posts}) => {
     return <>
         {posts.map((post)=> (

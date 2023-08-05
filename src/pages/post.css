@@ -1,0 +1,58 @@
+.PostPage {
+  width: 100%;
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.Missing h2,
+.PostPage h2,
+.Missing p,
+.PostPage p {
+  margin-bottom: 1rem;
+}
+
+.PostPage button {
+  border: none;
+  background-color: transparent;
+}
+.deleteButton :hover{
+  color: rgb(206, 9, 9);
+}
+.editButton :hover{
+  color: rgb(47, 255, 50);
+}
+
+.post {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.post a {
+  text-decoration: none;
+}
+
+.post a,
+.post a:visited {
+  color: #000;
+}
+
+.post:first-child {
+  margin-top: 0;
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+
+.postDate {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.postBody {
+  margin: 1rem 0;
+}
+

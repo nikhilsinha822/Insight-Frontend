@@ -1,10 +1,10 @@
 import { useEffect,useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useContext } from "react";
-import api from './api/post'
+import api from '../api/post'
 import {format} from "date-fns";
 import { useNavigate } from "react-router-dom";
-import DataContext from "./context/DataContext";
+import DataContext from "../context/DataContext";
 
 const EditPost = () => {
   const [editTitle, setEditTitle] = useState("");
