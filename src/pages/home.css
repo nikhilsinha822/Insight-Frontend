@@ -1,0 +1,20 @@
+.Home a {
+  text-decoration: none;
+}
+
+.Home a,
+.Home a:visited {
+  color: #000;
+}
+
+.Home {
+  width: 100vw;
+  padding: 1rem;
+  background-color: #fff;
+}
+@media screen and (min-width: 700px){
+    .Home{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

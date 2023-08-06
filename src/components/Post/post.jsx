@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import './post.css';
 
 const Post = ({ post }) => {
   //console.log(post)
   return (
-    <article className="post">
+    <article className="pst">
       <Link to={`post/${post._id}`}>
-        <h2>{post.title}</h2>
-        <p className="postDate">{post.dateTime}</p>
+        <h2>{post.title.length <= 35 ? post.title : `${post.title.slice(0,50)}...`}</h2>
+        <p className="postdate">{post.datetime}</p>
       </Link>
       <p className="postBody">
         {post.body.length <= 25 ? post.body : `${post.body.slice(0, 25)}...`}

@@ -1,0 +1,19 @@
+.pst {
+    border: solid 1px;
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 10px;
+}
+
+.pst h2{
+    font-size: 1.2rem;
+}
+.pst .postdate{
+    line-height: 2rem;
+    font-size: 0.8rem;
+}
+.pst p{
+    margin: 0;
+    line-height: 2rem;
+    font-size: 1rem;
+}

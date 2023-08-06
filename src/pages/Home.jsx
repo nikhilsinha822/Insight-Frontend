@@ -1,6 +1,7 @@
 import Feed from "../components/feed";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
+import './home.css'
 
 const Home = () => {
   const {searchResults, fetchError, isLoading} = useContext(DataContext);
@@ -14,7 +15,7 @@ const Home = () => {
           (searchResults.length ? (
         <Feed posts={searchResults} />
       ) : (
-        <p style={{ marginTop: "2rem" }}>No posts to display</p>
+        <p className="noPost">No posts to display</p>
       ))}
     </main>
   );
