@@ -6,7 +6,7 @@
   padding: 1rem 2rem;
   width: 100%;
   box-shadow: 2px 2px 2px black;
-  background-color: #0e0f10;
+  background-color: #0b0b0b;
 }
 
 .Nav ul {
@@ -62,7 +62,7 @@ header button {
   }
   .Nav{
     border-radius: 0 0 0 5rem;
-    background-color: rgb(18, 17, 17);
+    background-color: #0b0b0b;
   }
   header nav {
     position: fixed;

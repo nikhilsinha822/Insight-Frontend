@@ -29,7 +29,7 @@ const Header = () => {
         </nav>
 
         <button className="nav-btn nav-open-btn" onClick={showNavbar}>
-            <GiHamburgerMenu />
+            <GiHamburgerMenu color="fff"/>
         </button>
         {/* <span>
             <FaRegUserCircle size="30px" />
