@@ -23,7 +23,7 @@
     height: 200px;
 }
 @media screen and (orientation: landscape){
-    .pst{
+    /* .pst{
         max-width: 30vw;
-    }
+    } */
 }

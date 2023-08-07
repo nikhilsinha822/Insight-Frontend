@@ -17,6 +17,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   background-color: #efefef;
+  overflow-x: hidden;
 }
 
 #root {
