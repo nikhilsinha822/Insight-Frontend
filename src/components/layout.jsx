@@ -6,10 +6,10 @@ import { Outlet } from "react-router";
 
 const Layout = () => {
   return (
-    <div style={{"minHeight": "100vh","minWidth": "100vw", "display": "flex", "flexDirection": "column"}}>
+    <div style={{minHeight: "100vh",minWidth: "100vw", display: "flex", flexDirection: "column"}}>
       <Header/>
       <SearchBar />
-      <div className="content">
+      <div style={{marginTop: "8rem"}}>
         <Outlet />
       </div> 
       <Footer />

@@ -1,13 +1,21 @@
 .searchForm{
-  width: auto;
-  margin-top: 100px;
+  position: fixed;
   width: 100%;
+  margin-top: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #f5f5f5;
 }
 .searchForm input[type="text"] {
   border: none;
+  /* min-width: 50%; */
+  width: 70%;
   font-size: 1rem;
   padding: 1rem 0.5rem;
-  width: 13rem;
   height: 1rem;
   border-bottom: 1px solid;
   background-color: transparent;
@@ -18,4 +26,10 @@ input:focus{
 .searchForm label {
   position: absolute;
   left: -99999px;
+}
+
+@media screen and (orientation: landscape){
+  .searchForm input[type="text"]{
+    width: 40%;
+  }
 }
