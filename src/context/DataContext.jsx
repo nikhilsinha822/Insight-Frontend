@@ -3,8 +3,6 @@ import useWindowSize from "../hooks/useWindowSize";
 import useAxiosFetch from "../hooks/useAxiosFetch";
 
 const DataContext = createContext({});
-const TEST_URL="http://localhost:3500"
-const WORK_URL="https://tt-lbu6.onrender.com"
 
 export const DataProvider = ({children}) => {
   const [search, setSearch] = useState("");

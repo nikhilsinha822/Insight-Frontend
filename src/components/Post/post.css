@@ -2,6 +2,7 @@
     border: solid 1px;
     border-radius: 20px;
     padding: 1rem;
+    overflow: hidden;
     margin: 10px;
 }
 
@@ -16,4 +17,14 @@
     margin: 0;
     line-height: 2rem;
     font-size: 1rem;
+}
+.pst img{
+    max-width: 100%;
+    min-width: 100%;
+    height: 200px;
+}
+@media screen and (orientation: landscape){
+    .pst{
+        max-width: 30vw;
+    }
 }
