@@ -1,0 +1,21 @@
+.searchForm{
+  width: auto;
+  margin-top: 100px;
+  width: 100%;
+}
+.searchForm input[type="text"] {
+  border: none;
+  font-size: 1rem;
+  padding: 1rem 0.5rem;
+  width: 13rem;
+  height: 1rem;
+  border-bottom: 1px solid;
+  background-color: transparent;
+}
+input:focus{
+  outline: none;
+}
+.searchForm label {
+  position: absolute;
+  left: -99999px;
+}

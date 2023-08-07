@@ -4,13 +4,12 @@
 
 .Home a,
 .Home a:visited {
-  color: #000;
+  color: #000000;
 }
 
 .Home {
   max-width: 100vw;
   padding: 5vh 5vw;
-  background-color: #fff;
   display: grid;
   gap: 2vh;
 }

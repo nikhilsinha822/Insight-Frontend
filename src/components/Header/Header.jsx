@@ -1,23 +1,40 @@
-import { useContext } from "react";
-import DataContext from "../../context/DataContext";
 import Logo from '../../assets/logo'
-import {BsSearch} from "react-icons/bs"
+import { Link } from "react-router-dom";
 import './header.css'
+import { useRef } from 'react';
+import { AiOutlineCloseCircle } from "react-icons/ai"
+import { GiHamburgerMenu } from "react-icons/gi"
+// import { FaRegUserCircle } from "react-icons/fa"
 
 const Header = () => {
-    const { search, setSearch } = useContext(DataContext);
+    const navRef = useRef();
+
+    function showNavbar() {
+        return navRef.current.classList.toggle("responsive_nav");
+    }
+
     return <header className="Header">
         <Logo />
-        <form className="searchForm" onSubmit={(evt) => evt.preventDefault()}>
-            <label htmlFor="search">Search Post</label>
-            <input
-                type="text"
-                placeholder="search"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-            />
-            <BsSearch size="1rem"/>
-        </form>
+        <nav className="Nav" ref={navRef} onClick={showNavbar}>
+            <ul>
+                <li>
+                    <Link to="/">HOME</Link>
+                </li>
+                <li><Link to="/post">NEW POST</Link></li>
+                <li><Link to="/about">ABOUT</Link></li>
+            </ul>
+            <button className="nav-btn nav-close-btn">
+                <AiOutlineCloseCircle />
+            </button>
+        </nav>
+
+        <button className="nav-btn nav-open-btn" onClick={showNavbar}>
+            <GiHamburgerMenu />
+        </button>
+        {/* <span>
+            <FaRegUserCircle size="30px" />
+            <h6>Login</h6>
+        </span> */}
     </header>
 }
 

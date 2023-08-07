@@ -1,0 +1,8 @@
+.Footer {
+    padding: 0.75rem;
+    font-size: 0.5rem;
+    display: grid;
+    place-content: center;
+    background-color: #1a1a1a;
+    color: whitesmoke;
+}
