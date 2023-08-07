@@ -12,7 +12,7 @@ export const DataProvider = ({children}) => {
   const [posts, setPosts] = useState([]);
   const { width } = useWindowSize();
   const { data, fetchError, isLoading } = useAxiosFetch(
-    `${WORK_URL}/posts`
+    `${import.meta.env.VITE_BASE_URL}/posts`
   );
 
   useEffect(() => {
