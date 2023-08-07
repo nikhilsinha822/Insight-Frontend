@@ -6,7 +6,7 @@
   padding: 1rem 2rem;
   width: 100%;
   box-shadow: 2px 2px 2px black;
-  background-color: #f5f5f5;
+  background-color: #0e0f10;
 }
 
 .Nav ul {
@@ -23,7 +23,7 @@
   padding: 1rem;
 }
 .Nav li a {
-  color: #000000;
+  color: #e4e4e4;
   text-decoration: none;
 }
 

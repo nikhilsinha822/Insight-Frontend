@@ -30,6 +30,6 @@ input:focus{
 
 @media screen and (orientation: landscape){
   .searchForm input[type="text"]{
-    width: 40%;
+    width: 50%;
   }
 }
