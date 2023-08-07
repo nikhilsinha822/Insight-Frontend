@@ -5,12 +5,14 @@ import api from '../api/post'
 import {format} from "date-fns";
 import { useNavigate } from "react-router-dom";
 import DataContext from "../context/DataContext";
+import './editPost.css'
 
 const EditPost = () => {
   const [editTitle, setEditTitle] = useState("");
   const [editBody, setEditBody] = useState("");
+  const [imageData, setImageData] = useState("");
   const { id } = useParams();
-  const {posts, setPosts} = useContext(DataContext)
+  const {posts, setPosts, generateImageUrl} = useContext(DataContext)
   const post = posts.find((post) => post._id.toString() === id);
   const Navigate = useNavigate();
 
@@ -23,7 +25,11 @@ const EditPost = () => {
 
   const handleEdit = async (_id) => {
     const datetime = format(new Date(), "MMMM dd, yyyy pp");
-    const updatedPost = { _id , title: editTitle, datetime, body: editBody };
+    let data="";
+    if(imageData){
+       data = await generateImageUrl(imageData);
+    }
+    const updatedPost = { _id , title: editTitle, datetime, body: editBody, ...data};
     try {
       const response = await api.put(`/posts/${id}`, updatedPost);
       setPosts(
@@ -50,6 +56,15 @@ const EditPost = () => {
               value={editTitle}
               onChange={(e) => setEditTitle(e.target.value)}
             />
+            {
+            post.image && <img src={post.image} alt="postimage"/>  
+            }
+            <label htmlFor="postImage">Note:- Uploading new image will replace the old image</label>
+            <input
+              id="postImage"
+              type="file"
+              onChange={(e)=> setImageData(e.target.files[0])}
+            />
             <label htmlFor="postBody">Post:</label>
             <textarea
               id="postBody"
@@ -64,7 +79,7 @@ const EditPost = () => {
         </>
       ) : (
         <>
-          <h2>Page NOt found</h2>
+          <h2>Page Not found</h2>
           <p>Well thats dispointing</p>
           <p>
             <Link to="/">Visit our HomePage</Link>
