@@ -9,20 +9,20 @@
 
 .Home {
   width: 100vw;
-  padding: 1rem;
+  padding: 5vh 5vw;
   background-color: #fff;
+  display: grid;
+  gap: 2vh;
 }
 @media screen and (orientation: landscape){
     .Home{
-        display: grid;
         grid-template-columns: repeat(3, 1fr);
-
+        gap: 1.5vw;
     }
 }
-@media (min-width: 540px){
+@media (min-width: 540px) and (orientation: portrait){
   .Home{
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-
-}
+    gap: 1.5vw;
+  }
 }
