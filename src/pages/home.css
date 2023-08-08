@@ -13,6 +13,31 @@
   display: grid;
   gap: 2vh;
 }
+.loader{
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.loader img{
+  max-width: fit-content;
+  width: 250px;
+  
+}
+.error{
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 @media screen and (orientation: landscape){
     .Home{
         grid-template-columns: repeat(3, 1fr);
