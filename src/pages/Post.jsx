@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import DataContext from "../context/DataContext";
 import { MdDeleteOutline } from "react-icons/md";
 import { HiPencil } from "react-icons/hi"
+import DOMpurify from 'dompurify'
 import "./post.css"
 
 const PostPage = () => {
@@ -42,7 +43,7 @@ const PostPage = () => {
               <MdDeleteOutline size="1.7rem" />
             </button>
             <img src={post.image && post.image!="NA" ?  post.image : "https://www.shutterstock.com/image-vector/missing-picture-page-website-design-260nw-1552421075.jpg"} alt="postimage"/>  
-            <p className="postBody" dangerouslySetInnerHTML={{__html: post.body}} />
+            <p className="postBody" dangerouslySetInnerHTML={{__html: DOMpurify.sanitize(post.body)}} />
           </div>
         ) : (
           <>

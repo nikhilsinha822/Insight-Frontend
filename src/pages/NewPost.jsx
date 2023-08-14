@@ -10,10 +10,8 @@ const NewPost = () => {
   const [postTitle, setPostTitle] = useState("");
   const [postBody, setPostBody] = useState("");
   const [img, setImg] = useState("");
-
   const Navigate = useNavigate();
   
-
     const handleSubmit = async (e) => {
       e.preventDefault();
       const datetime = format(new Date(), "MMMM dd, yyyy pp");
