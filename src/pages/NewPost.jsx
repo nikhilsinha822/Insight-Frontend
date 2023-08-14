@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import DataContext from "../context/DataContext";
 import { useNavigate } from "react-router-dom";
+import Editor from "../components/textEditor";
 import api from '../api/post';
 import { format } from "date-fns";
 
@@ -52,11 +53,9 @@ const NewPost = () => {
           onChange={(e) => setImg(e.target.files[0])}
         />
         <label htmlFor="postBody">Post:</label>
-        <textarea
-          id="postBody"
-          required
-          value={postBody}
-          onChange={(e) => setPostBody(e.target.value)}
+        <Editor
+          content={postBody}
+          setContent={setPostBody}
         />
         <button type="submit">Submit</button>
       </form>

@@ -5,6 +5,7 @@ import api from '../api/post'
 import {format} from "date-fns";
 import { useNavigate } from "react-router-dom";
 import DataContext from "../context/DataContext";
+import Editor from "../components/textEditor";
 import './editPost.css'
 
 const EditPost = () => {
@@ -57,7 +58,7 @@ const EditPost = () => {
               onChange={(e) => setEditTitle(e.target.value)}
             />
             {
-            post.image && <img src={post.image} alt="postimage"/>  
+              post.image && <img src={post.image} alt="postimage"/>  
             }
             <label htmlFor="postImage">Note:- Uploading new image will replace the old image</label>
             <input
@@ -66,11 +67,9 @@ const EditPost = () => {
               onChange={(e)=> setImageData(e.target.files[0])}
             />
             <label htmlFor="postBody">Post:</label>
-            <textarea
-              id="postBody"
-              required
-              value={editBody}
-              onChange={(e) => setEditBody(e.target.value)}
+            <Editor
+              content={editBody}
+              setContent={setEditBody}
             />
             <button type="submit" onClick={() => handleEdit(post._id)}>
               Submit

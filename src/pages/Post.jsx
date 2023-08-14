@@ -27,7 +27,7 @@ const PostPage = () => {
     <main className="PostPage">
       <article className="post">
         {post ? (
-          <>
+          <div className="postContainer">
             <h2>{post.title}</h2>
             <p className="postDate">{post.datetime}</p>
             <Link to={`/edit/${post._id}`}>
@@ -42,8 +42,8 @@ const PostPage = () => {
               <MdDeleteOutline size="1.7rem" />
             </button>
             <img src={post.image && post.image!="NA" ?  post.image : "https://www.shutterstock.com/image-vector/missing-picture-page-website-design-260nw-1552421075.jpg"} alt="postimage"/>  
-            <p className="postBody">{post.body}</p>
-          </>
+            <p className="postBody" dangerouslySetInnerHTML={{__html: post.body}} />
+          </div>
         ) : (
           <>
             <h2>Post Not Found</h2>
