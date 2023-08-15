@@ -9,24 +9,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;800&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      .svgLoader {
-        animation: spin 0.5s linear infinite;
-        margin: auto;
-      }
-      .divLoader {
-        width: 100vw;
+      .divLoader{
+        width: 100%;
         height: 100vh;
+        background-color: #c3c3c3;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        text-align: center;
         justify-content: center;
+        align-items: center;
       }
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
+      .divLoader img{
+        width: 50px;
       }
     </style>
     <title>Quick Pens</title>
@@ -34,14 +28,7 @@
   <body>
     <div id="root">
       <div class="divLoader">
-        <svg
-          class="svgLoader"
-          viewBox="0 0 1024 1024"
-          width="10em"
-          height="10em"
-        >
-          <path fill="lightblue" d="M512 64C267.776 64 64 267.776 64 512s203.776 448 448 448 448-203.776 448-448S756.224 64 512 64zm0 832C305.04 896 128 718.96 128 512S305.04 128 512 128s384 177.04 384 384-177.04 384-384 384zm0-608a48 48 0 1 0 48 48 48 48 0 0 0-48-48z" />
-        </svg>
+        <img src="./Double Ring-1s-200px.svg" alt="loader"/>
       </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>
