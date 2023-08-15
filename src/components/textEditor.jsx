@@ -24,7 +24,7 @@ const Editor = ({ content, setContent }) => {
       imageUploadSizeLimit: 5 * 1024 * 1024,
       buttonList: [
         ['bold', 'underline', 'italic', 'subscript', 'superscript'],
-        ['hiliteColor'],
+        ['hiliteColor','formatBlock'],
         ['horizontalRule', 'list'],
         ['table', 'link', 'image', 'video'],
         ['codeView'],
