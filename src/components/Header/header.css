@@ -12,19 +12,16 @@
 
 .Nav ul {
   display: flex;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   list-style-type: none;
 }
 
 .Nav li {
-  padding: 1rem;
-}
-.Nav li:hover,
-.Nav li:focus {
-  padding: 1rem;
+  padding: 0 0.7rem;
 }
 .Nav li a {
-  color: #e4e4e4;
+  color: #c4c4c4;
+  background-color: #0b0b0b;
   text-decoration: none;
 }
 
@@ -32,7 +29,6 @@
 .Nav li:focus,
 .Nav li:hover a,
 .Nav li:focus a {
-  background-color: #000000;
   color: #fff;
 }
 
@@ -41,13 +37,19 @@
   cursor: pointer;
 }
 
-
 /* navbar */
 header button {
   width: fit-content;
   background: transparent;
   border: none;
-  font-size: 2rem;
+  font-size: 1.3rem;
+  line-height: 0;
+}
+.Header button :focus{
+  background-color: #0b0b0b;
+}
+.Header button a:focus{
+  background-color: #0b0b0b;
 }
 .nav-btn {
   cursor: pointer;
@@ -57,6 +59,9 @@ header button {
   .nav-btn,
   .Nav ul {
     display: unset;
+  }
+  .Nav li{
+    padding: 0.5rem;
   }
   .nav-close-btn, .Nav ul a{
     color: #ffffff; 
