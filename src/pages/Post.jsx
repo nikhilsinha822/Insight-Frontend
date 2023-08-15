@@ -43,7 +43,7 @@ const PostPage = () => {
               <MdDeleteOutline size="1.7rem" />
             </button>
             <img src={post.image && post.image!="NA" ?  post.image : "https://www.shutterstock.com/image-vector/missing-picture-page-website-design-260nw-1552421075.jpg"} alt="postimage"/>  
-            <p className="postBody" dangerouslySetInnerHTML={{__html: DOMpurify.sanitize(post.body)}} />
+            <p className="postBody" dangerouslySetInnerHTML={{__html: DOMpurify.sanitize(post.body, {ADD_TAGS: ['iframe']})}} />
           </div>
         ) : (
           <>

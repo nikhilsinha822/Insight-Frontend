@@ -1,8 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image" href="/favicon.ico" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;800&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       .svgLoader {
@@ -17,8 +21,12 @@
         justify-content: center;
       }
       @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
       }
     </style>
     <title>Quick Pens</title>
@@ -26,10 +34,13 @@
   <body>
     <div id="root">
       <div class="divLoader">
-        <svg class="svgLoader" viewBox="0 0 1024 1024" width="10em" height="10em">
-          <path fill="lightblue"
-            d="PATH FOR THE LOADER ICON"
-          />
+        <svg
+          class="svgLoader"
+          viewBox="0 0 1024 1024"
+          width="10em"
+          height="10em"
+        >
+          <path fill="lightblue" d="M512 64C267.776 64 64 267.776 64 512s203.776 448 448 448 448-203.776 448-448S756.224 64 512 64zm0 832C305.04 896 128 718.96 128 512S305.04 128 512 128s384 177.04 384 384-177.04 384-384 384zm0-608a48 48 0 1 0 48 48 48 48 0 0 0-48-48z" />
         </svg>
       </div>
     </div>

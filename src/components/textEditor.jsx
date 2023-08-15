@@ -21,7 +21,7 @@ const Editor = ({ content, setContent }) => {
       fontSize: 'calc(20rem)',
       mode: 'balloon-always',
       imageMultipleFile: true,
-      imageUploadSizeLimit: 1 * 1024 * 1024,
+      imageUploadSizeLimit: 5 * 1024 * 1024,
       buttonList: [
         ['bold', 'underline', 'italic', 'subscript', 'superscript'],
         ['hiliteColor'],
