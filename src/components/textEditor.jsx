@@ -5,11 +5,29 @@ import CodeMirror from 'codemirror'
 import 'codemirror/mode/htmlmixed/htmlmixed'
 import 'codemirror/lib/codemirror.css'
 import katex from 'katex'
+import DataContext from '../context/DataContext';
+import { useContext } from 'react';
 
 const Editor = ({ content, setContent }) => {
+  const {generateImageUrl} = useContext(DataContext)
   return <SunEditor
     setContents={content}
     onChange={setContent}
+    onImageUploadBefore={(files, info, uploadHandler) => {(async () => {
+          const {image, imgId} = await generateImageUrl(files[0])
+          const response = {
+              "errorMessage": "looks like something gone wrong try again",
+              "result": [{
+                "url": image,
+                "name": imgId,
+                "size": files[0].size,
+              }]
+            }
+          uploadHandler(response);
+      })()
+      uploadHandler();
+      }
+    }
     setOptions={{
       plugins: plugins,
       height: "auto",
