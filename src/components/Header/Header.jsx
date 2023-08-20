@@ -14,7 +14,7 @@ const Header = () => {
     }
 
     return <header className="Header">
-        <Logo />
+        <Logo/>
         <nav className="Nav" ref={navRef} onClick={showNavbar}>
             <ul>
                 <li>
@@ -24,12 +24,12 @@ const Header = () => {
                 <li><Link to="/about">ABOUT</Link></li>
             </ul>
             <button className="nav-btn nav-close-btn">
-                <AiOutlineCloseCircle />
+                <AiOutlineCloseCircle size="1.5rem"/>
             </button>
         </nav>
 
         <button className="nav-btn nav-open-btn" onClick={showNavbar}>
-            <GiHamburgerMenu color="fff"/>
+            <GiHamburgerMenu color="fff" size="1.5rem"/>
         </button>
         {/* <span>
             <FaRegUserCircle size="30px" />
