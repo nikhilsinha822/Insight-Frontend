@@ -1,6 +1,5 @@
 import './footer.css'
 import Logo from "../../assets/logo2"
-import Logo3 from '../../assets/logo3';
 
 const Footer = () => {
     const today = new Date();
@@ -9,7 +8,6 @@ const Footer = () => {
         <h1>
             &copy; {today.getFullYear() } quick pens
         </h1>
-        <Logo3 />
     </footer>
 }
 
