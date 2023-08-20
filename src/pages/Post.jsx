@@ -6,7 +6,7 @@ import DataContext from "../context/DataContext";
 import { MdDeleteOutline } from "react-icons/md";
 import { HiPencil } from "react-icons/hi"
 import DOMpurify from 'dompurify'
-import './Post.css'
+import './post.css'
 
 const PostPage = () => {
   const { id } = useParams();
