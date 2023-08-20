@@ -6,59 +6,71 @@
   justify-content: center;
   align-items: center;
 }
-.se-video-container figure iframe{
-  min-height: 35vw;
-}
-.se-video-container figure{
-  margin-bottom: -56.25%;
-}
 .Missing h2,
 .PostPage h2,
-.Missing p,
-.PostPage p {
+.Missing p {
   margin-bottom: 1rem;
 }
+.PostPage .postDate {
+  line-height: 1rem;
+  font-size: 0.44rem;
+  font-weight: 100;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.headerImg {
+  width: 100%;
+}
+.sun-editor-editable p {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.8rem;
+}
 
-.PostPage button{
+.PostPage button {
   border: none;
   background-color: transparent;
 }
-.deleteButton :hover{
+.deleteButton :hover {
   color: rgb(206, 9, 9);
 }
-.editButton :hover{
+.editButton :hover {
   color: rgb(47, 255, 50);
 }
 .post a {
   text-decoration: none;
 }
 
-.post img{
+.post img {
   max-width: 100%;
   display: block;
   margin: auto;
   margin-bottom: 2rem;
 }
 
-.postContainer{
+.postContainer {
   min-width: 50vw;
   max-width: 100vw;
-  font-size: 1.2rem;
+  padding: 1rem;
   margin: 2rem 18vw;
+  background-color: rgb(255, 255, 255);
 }
 
-.postContainer h2{
-  font-size: 2rem
+.postContainer h2 {
+  font-size: 2rem;
 }
-.postContainer strong{
+.postContainer strong {
   font-size: 1.5rem;
 }
+.sun-editor-editable p a {
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+}
 
-@media screen and (orientation: portrait){
-  .postContainer{
-    margin: 2rem;
+@media screen and (orientation: portrait) {
+  .postContainer {
+    margin: 0.1rem;
   }
-  .se-video-container figure iframe{
-    min-height: 50vw;
+  .sun-editor-editable p {
+    font-family: "Outfit", sans-serif;
+    font-size: 1rem;
   }
 }

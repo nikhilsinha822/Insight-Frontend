@@ -44,7 +44,7 @@ const NewPost = () => {
           value={postTitle}
           onChange={(e) => setPostTitle(e.target.value)}
         />
-        <label htmlFor="newImage">Image:</label>
+        <label htmlFor="newImage">Header Image:</label>
         <input
           id="postImage"
           type="file"

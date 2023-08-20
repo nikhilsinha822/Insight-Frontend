@@ -6,7 +6,7 @@ import DataContext from "../context/DataContext";
 import { MdDeleteOutline } from "react-icons/md";
 import { HiPencil } from "react-icons/hi"
 import DOMpurify from 'dompurify'
-import "./post.css"
+import './Post.css'
 
 const PostPage = () => {
   const { id } = useParams();
@@ -42,8 +42,8 @@ const PostPage = () => {
             >
               <MdDeleteOutline size="1.7rem" />
             </button>
-            <img src={post.image && post.image!="NA" ?  post.image : "https://www.shutterstock.com/image-vector/missing-picture-page-website-design-260nw-1552421075.jpg"} alt="postimage"/>  
-            <div className="postBody" dangerouslySetInnerHTML={{__html: DOMpurify.sanitize(post.body, {ADD_TAGS: ['iframe']})}} />
+            <img className="headerImg" src={post.image && post.image!="NA" ?  post.image : "https://www.shutterstock.com/image-vector/missing-picture-page-website-design-260nw-1552421075.jpg"} alt="postimage"/>  
+            <div className="postBody sun-editor-editable" dangerouslySetInnerHTML={{__html: DOMpurify.sanitize(post.body, {ADD_TAGS: ['iframe']})}} />
           </div>
         ) : (
           <>
