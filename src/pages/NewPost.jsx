@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Editor from "../components/textEditor";
 import api from '../api/post';
 import { format } from "date-fns";
+import './NewPost.css'
 
 const NewPost = () => {
   const { posts, setPosts, generateImageUrl } = useContext(DataContext)
