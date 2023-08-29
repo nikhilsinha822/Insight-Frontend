@@ -5,6 +5,7 @@ import Editor from "../components/textEditor";
 import api from '../api/post';
 import { format } from "date-fns";
 import './NewPost.css'
+import { useAuth0 } from "@auth0/auth0-react";
 
 const NewPost = () => {
   const { posts, setPosts, generateImageUrl } = useContext(DataContext)
@@ -12,28 +13,39 @@ const NewPost = () => {
   const [postBody, setPostBody] = useState("");
   const [img, setImg] = useState("");
   const Navigate = useNavigate();
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      const datetime = format(new Date(), "MMMM dd, yyyy pp");
-      let data = await generateImageUrl(img);
-      const newPost = { title: postTitle, body: postBody, datetime, ...data };
-      try {
-        const res = await api.post("/posts", newPost);
-        const _id = res.data.id;
-        const allPosts = [...posts, { ...newPost, _id }];
-        setPosts(allPosts);
-        setPostTitle("");
-        setPostBody("");
-        setImg("");
-        Navigate("/");
-      } catch (err) {
-        console.log(`Error: ${err.message}`);
+  const { isAuthenticated, user, loginWithRedirect, getAccessTokenSilently } = useAuth0()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const datetime = format(new Date(), "MMMM dd, yyyy pp");
+    let data = await generateImageUrl(img);
+    const token = await getAccessTokenSilently();
+    const newPost = { title: postTitle, body: postBody, datetime, ...data};
+    try {
+      const res = await api.post("/posts", 
+      newPost,
+      {
+        headers: {
+          authorization: `Bearer ${token}`
+        }
       }
-    };
-    
-    return (
-    
+      );
+      const _id = res.data.id;
+      const sub = res.data.sub;
+      const allPosts = [...posts, { ...newPost, _id, sub}];
+      setPosts(allPosts);
+      setPostTitle("");
+      setPostBody("");
+      setImg("");
+      Navigate("/");
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  };
+  console.log(user)
+  return <>
+  {
+    isAuthenticated ?
     <main className="NewPost">
       <form className="newPostForm" onSubmit={handleSubmit}>
         <label htmlFor="postTitle">Title:</label>
@@ -59,7 +71,10 @@ const NewPost = () => {
         <button type="submit">Submit</button>
       </form>
     </main>
-  );
+    :
+    (loginWithRedirect())()
+  }
+  </>
 };
 
 export default NewPost;

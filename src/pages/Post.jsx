@@ -7,8 +7,10 @@ import { MdDeleteOutline } from "react-icons/md";
 import { HiPencil } from "react-icons/hi"
 import DOMpurify from 'dompurify'
 import './post.css'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const PostPage = () => {
+  const { user, isAuthenticated } = useAuth0();
   const { id } = useParams();
   const { posts, setPosts } = useContext(DataContext)
   const post = posts.find((post) => post._id.toString() === id);
@@ -31,19 +33,23 @@ const PostPage = () => {
           <div className="postContainer">
             <h2>{post.title}</h2>
             <p className="postDate">{post.datetime}</p>
-            <Link to={`/edit/${post._id}`}>
-              <button className="editButton">
-                <HiPencil size="1.7rem" />
+            {
+            isAuthenticated && user?.sub?.split('|')[1] === post?.sub &&
+            <>
+              <Link to={`/edit/${post._id}`}>
+                <button className="editButton">
+                  <HiPencil size="1.7rem" />
+                </button>
+              </Link>
+              <button
+                onClick={() => handleDelete(post._id)}
+                className="deleteButton"
+              >
+                <MdDeleteOutline size="1.7rem" />
               </button>
-            </Link>
-            <button
-              onClick={() => handleDelete(post._id)}
-              className="deleteButton"
-            >
-              <MdDeleteOutline size="1.7rem" />
-            </button>
-            <img className="headerImg" src={post.image && post.image!="NA" ?  post.image : "https://www.shutterstock.com/image-vector/missing-picture-page-website-design-260nw-1552421075.jpg"} alt="postimage"/>  
-            <div className="postBody sun-editor-editable" dangerouslySetInnerHTML={{__html: DOMpurify.sanitize(post.body, {ADD_TAGS: ['iframe']})}} />
+            </>}
+            <img className="headerImg" src={post.image && post.image != "NA" ? post.image : "https://www.shutterstock.com/image-vector/missing-picture-page-website-design-260nw-1552421075.jpg"} alt="postimage" />
+            <div className="postBody sun-editor-editable" dangerouslySetInnerHTML={{ __html: DOMpurify.sanitize(post.body, { ADD_TAGS: ['iframe'] }) }} />
           </div>
         ) : (
           <>
