@@ -15,7 +15,7 @@ const SearchBar = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
-            <BsSearch size="1rem"/>
+            <BsSearch size="1rem" style={{color:"white"}}/>
     </form>
   );
 };

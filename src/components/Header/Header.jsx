@@ -16,9 +16,9 @@ const Header = () => {
     }
 
     return <header className="Header">
-        {width <= height && <Logo />}
+        {width <= height && <span className='logoText'><Logo /><span><h1>Insight</h1><h6>Unleash Your Thoughts</h6></span></span>}
         <nav className="Nav" ref={navRef} onClick={showNavbar}>
-            {width > height && <Logo />}
+            {width > height && <span className='logoText'><Logo /><span><h1>Insight</h1><h6>Unleash Your Thoughts</h6></span></span>}
             <ul>
                 <li>
                     <Link to="/">HOME</Link>

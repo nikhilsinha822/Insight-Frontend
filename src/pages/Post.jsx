@@ -32,22 +32,27 @@ const PostPage = () => {
         {post ? (
           <div className="postContainer">
             <h2>{post.title}</h2>
+            <div className="author">
+              <img src={post?.user?.photo} />
+              <p>{post?.user?.name}</p>
+              <p><em>{post?.user?.email}</em></p>
+            </div>
             <p className="postDate">{post.datetime}</p>
             {
-            isAuthenticated && user?.sub?.split('|')[1] === post?.sub &&
-            <>
-              <Link to={`/edit/${post._id}`}>
-                <button className="editButton">
-                  <HiPencil size="1.7rem" />
+              isAuthenticated && user?.sub?.split('|')[1] === post?.user?.sub &&
+              <>
+                <Link to={`/edit/${post._id}`}>
+                  <button className="editButton">
+                    <HiPencil size="1.7rem" />
+                  </button>
+                </Link>
+                <button
+                  onClick={() => handleDelete(post._id)}
+                  className="deleteButton"
+                >
+                  <MdDeleteOutline size="1.7rem" />
                 </button>
-              </Link>
-              <button
-                onClick={() => handleDelete(post._id)}
-                className="deleteButton"
-              >
-                <MdDeleteOutline size="1.7rem" />
-              </button>
-            </>}
+              </>}
             <img className="headerImg" src={post.image && post.image != "NA" ? post.image : "https://www.shutterstock.com/image-vector/missing-picture-page-website-design-260nw-1552421075.jpg"} alt="postimage" />
             <div className="postBody sun-editor-editable" dangerouslySetInnerHTML={{ __html: DOMpurify.sanitize(post.body, { ADD_TAGS: ['iframe'] }) }} />
           </div>

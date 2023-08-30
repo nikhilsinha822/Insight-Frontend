@@ -6,8 +6,9 @@ const Footer = () => {
     return <footer className="Footer">
         <Logo />
         <h1>
-            &copy; {today.getFullYear() } quick pens
+            &copy; {today.getFullYear() }
         </h1>
+        <span style={{fontSize:"1rem"}} className='logoText'>&nbsp; Insight</span>
     </footer>
 }
 

@@ -28,6 +28,7 @@ const Editor = ({ content, setContent }) => {
     setOptions={{
       plugins: plugins,
       height: "auto",
+      backgroundColor: "black",
       katex: katex,
       minHeight: 'calc(80vh)',
       minWidth: '100%',

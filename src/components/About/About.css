@@ -1,0 +1,8 @@
+.About{
+    flex-grow: 1;
+    padding: 5rem;
+    margin: 0rem 5rem 4rem;
+    overflow-y: auto;
+    color: aliceblue;
+    background-color: #000000;
+}

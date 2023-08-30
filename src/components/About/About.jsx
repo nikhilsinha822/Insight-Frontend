@@ -1,10 +1,13 @@
+import './about.css'
+import Logo from '../../assets/logo2';
 const About = () => {
   return (
     <main className="About">
       <h2>About</h2>
       <p style={{ marginTop: "1rem" }}>
-        This blog app is created my me.Do put your blog here
+        Insight gives you a better way to express your exprience, knowledge or anything in your mind
       </p>
+      <Logo/>
     </main>
   );
 };

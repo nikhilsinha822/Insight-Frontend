@@ -17,6 +17,7 @@
   height: 0.7rem;
   border-bottom: 1px solid;
   background-color: transparent;
+  color: aliceblue;
 }
 input:focus{
   outline: none;

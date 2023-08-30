@@ -10,6 +10,7 @@ const Post = ({ post }) => {
         <div className="pstText">
           <h2>{post.title.length <= 100 ? post.title : `${post.title.slice(0, 100)}...`}</h2>
           <h6 className="postdate">{post.datetime}</h6>
+          <p dangerouslySetInnerHTML={{__html: post.body.length <= 100 ? post.body : `${post.body.slice(0, 200)}...`}}></p>
         </div>
       </Link>
     </article>

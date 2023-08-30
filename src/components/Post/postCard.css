@@ -1,8 +1,13 @@
 .pst {
-    color: #000000;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.336);
     box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
     border-radius: 5px;
     overflow: hidden;
+    /* margin: 0px 12px; */
+}
+.pst a, .pst a:visited{
+    color: #fff;
 }
 .pst h2{
     font-size: 0.8rem;
@@ -24,7 +29,7 @@
 }
 .pst img{
     width: 100%; 
-    height: 270px; 
+    height: 135px; 
     object-fit: cover;
 }
 
@@ -32,12 +37,15 @@
     .pst img{
         border-radius: 5px;
         width: 100%; 
-        min-height: 25vh;
-        max-height: 30vh;
+        min-height: 15vh;
+        max-height: 20vh;
         object-fit: cover;
     }
     .pst h2{
         font-size: 1rem;
+    }
+    .pst{
+        margin: 0vw 5vw;
     }
 }
 

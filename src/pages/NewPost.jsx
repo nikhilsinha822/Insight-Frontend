@@ -30,9 +30,8 @@ const NewPost = () => {
         }
       }
       );
-      const _id = res.data.id;
-      const sub = res.data.sub;
-      const allPosts = [...posts, { ...newPost, _id, sub}];
+      const data = res.data;
+      const allPosts = [...posts, { ...newPost, ...data}];
       setPosts(allPosts);
       setPostTitle("");
       setPostBody("");
