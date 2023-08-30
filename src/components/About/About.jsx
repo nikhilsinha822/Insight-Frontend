@@ -1,4 +1,4 @@
-import './about.css'
+import './About.css'
 import Logo from '../../assets/logo2';
 const About = () => {
   return (
