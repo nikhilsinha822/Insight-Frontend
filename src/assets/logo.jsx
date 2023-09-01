@@ -2,8 +2,8 @@ const Logo = () => (
   <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width={66}
-      height={84}
+      width={50}
+      height={64}
       fill="none"
       viewBox="0 0 460 543"
     >

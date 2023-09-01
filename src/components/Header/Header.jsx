@@ -1,4 +1,5 @@
 import Logo from '../../assets/logo'
+import Logo3 from '../../assets/logo3';
 import { Link } from "react-router-dom";
 import './header.css'
 import { useRef } from 'react';
@@ -16,9 +17,9 @@ const Header = () => {
     }
 
     return <header className="Header">
-        {width <= height && <span className='logoText'><Logo /><span><h1>Insight</h1><h6>Unleash Your Thoughts</h6></span></span>}
+        {width <= height && <span className='logoText'><Logo /><span><h3>Insight</h3><h6>Unleash Your Thoughts</h6></span></span>}
         <nav className="Nav" ref={navRef} onClick={showNavbar}>
-            {width > height && <span className='logoText'><Logo /><span><h1>Insight</h1><h6>Unleash Your Thoughts</h6></span></span>}
+            {width > height && <span className='logoText'><Logo3 /><span><h1>Insight</h1><h6>Unleash Your Thoughts</h6></span></span>}
             <ul>
                 <li>
                     <Link to="/">HOME</Link>

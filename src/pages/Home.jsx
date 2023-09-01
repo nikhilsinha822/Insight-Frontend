@@ -11,20 +11,20 @@ const Home = () => {
     <>
       {
         isLoading ?
-          <div className="loader">
+          <div className="loader" style={{color: "white"}}>
             <img src={loader} alt="loader" />
             <h5>Hold on getting the latest post for you</h5>
           </div>
           :
           fetchError ?
-            <div className="error">
+            <div className="error" style={{color: "white"}}>
               <BsPlugFill size="3rem" />
               {`Oops! there was a ${fetchError} :(`}
               <br />
               Try refreshing the page or try again later.
             </div>
             :
-            <main className="Home">
+            <main className="Home" style={{color: "white"}}>
               {
                 (searchResults.length ? (
                   <Feed posts={searchResults} />
