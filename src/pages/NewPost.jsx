@@ -12,6 +12,7 @@ const NewPost = () => {
   const [postTitle, setPostTitle] = useState("");
   const [postBody, setPostBody] = useState("");
   const [img, setImg] = useState("");
+  const [imgId, setImgId] = useState([]);
   const Navigate = useNavigate();
   const { isAuthenticated, user, loginWithRedirect, getAccessTokenSilently } = useAuth0()
 
@@ -20,7 +21,8 @@ const NewPost = () => {
     const datetime = format(new Date(), "MMMM dd, yyyy pp");
     let data = await generateImageUrl(img);
     const token = await getAccessTokenSilently();
-    const newPost = { title: postTitle, body: postBody, datetime, ...data};
+    const newPost = { title: postTitle, body: postBody, datetime, ...data, user};
+    console.log(newPost)
     try {
       const res = await api.post("/posts", 
       newPost,
@@ -41,7 +43,6 @@ const NewPost = () => {
       console.log(`Error: ${err.message}`);
     }
   };
-  console.log(user)
   return <>
   {
     isAuthenticated ?
@@ -66,6 +67,8 @@ const NewPost = () => {
         <Editor
           content={postBody}
           setContent={setPostBody}
+          setImgId={setImgId}
+          imgId={imgId}
         />
         <button type="submit">Submit</button>
       </form>

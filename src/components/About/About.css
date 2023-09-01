@@ -6,3 +6,10 @@
     color: aliceblue;
     background-color: #000000;
 }
+
+@media screen and (orientation: portrait){
+    .About{
+        padding: 1.5rem;
+        margin : 0rem 0.5rem 1rem;
+    }
+}

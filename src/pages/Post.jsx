@@ -10,20 +10,26 @@ import './post.css'
 import { useAuth0 } from '@auth0/auth0-react'
 
 const PostPage = () => {
+  const {getAccessTokenSilently} = useAuth0()
   const { user, isAuthenticated } = useAuth0();
   const { id } = useParams();
   const { posts, setPosts } = useContext(DataContext)
   const post = posts.find((post) => post._id.toString() === id);
   const Navigate = useNavigate();
   const handleDelete = async (id) => {
+    const token = await getAccessTokenSilently();
     try {
-      await api.delete(`/posts/${id}`);
+      await api.delete(`/posts/${id}`,{
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+      });
       setPosts(
         posts.filter((post) => post._id !== id)
       );
       Navigate("/");
     } catch (err) {
-      console.log(`Error: ${err.message}`);
+      alert(`Error: ${err.message}`);
     }
   };
   return (
@@ -43,14 +49,14 @@ const PostPage = () => {
               <>
                 <Link to={`/edit/${post._id}`}>
                   <button className="editButton">
-                    <HiPencil size="1.7rem" />
+                    <HiPencil style={{color:"white"}} size="1.7rem" />
                   </button>
                 </Link>
                 <button
                   onClick={() => handleDelete(post._id)}
                   className="deleteButton"
                 >
-                  <MdDeleteOutline size="1.7rem" />
+                  <MdDeleteOutline style={{color:"white"}} size="1.7rem" />
                 </button>
               </>}
             <img className="headerImg" src={post.image && post.image != "NA" ? post.image : "https://www.shutterstock.com/image-vector/missing-picture-page-website-design-260nw-1552421075.jpg"} alt="postimage" />

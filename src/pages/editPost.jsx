@@ -7,11 +7,14 @@ import { useNavigate } from "react-router-dom";
 import DataContext from "../context/DataContext";
 import Editor from "../components/textEditor";
 import './editPost.css'
+import { useAuth0 } from "@auth0/auth0-react";
 
 const EditPost = () => {
   const [editTitle, setEditTitle] = useState("");
   const [editBody, setEditBody] = useState("");
   const [imageData, setImageData] = useState("");
+  const [user, setUser] = useState({});
+  const {getAccessTokenSilently} = useAuth0()
   const { id } = useParams();
   const {posts, setPosts, generateImageUrl} = useContext(DataContext)
   const post = posts.find((post) => post._id.toString() === id);
@@ -21,6 +24,7 @@ const EditPost = () => {
     if (post) {
       setEditTitle(post.title);
       setEditBody(post.body);
+      setUser(post.user)
     }
   }, [post, setEditTitle, setEditBody]);
 
@@ -30,9 +34,14 @@ const EditPost = () => {
     if(imageData){
        data = await generateImageUrl(imageData);
     }
-    const updatedPost = { _id , title: editTitle, datetime, body: editBody, ...data};
+    const updatedPost = { _id , title: editTitle, datetime, body: editBody, ...data, user};
     try {
-      const response = await api.put(`/posts/${id}`, updatedPost);
+      const token = await getAccessTokenSilently()
+      const response = await api.put(`/posts/${id}`, updatedPost,{
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+      });
       setPosts(
         posts.map((post) => (post._id === id ? { ...response.data } : post))
       );
@@ -40,7 +49,7 @@ const EditPost = () => {
       setEditBody("");
       Navigate("/");
     } catch (err) {
-      console.log(`Error: ${err.message}`);
+      alert(`Error: ${err.message}`);
     }
   };
   return (
