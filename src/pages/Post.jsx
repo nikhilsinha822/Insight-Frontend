@@ -17,9 +17,10 @@ const PostPage = () => {
   const post = posts.find((post) => post._id.toString() === id);
   const Navigate = useNavigate();
   const handleDelete = async (id) => {
-    const token = await getAccessTokenSilently();
     try {
-      await api.delete(`/posts/${id}`,{
+      const token = await getAccessTokenSilently();
+      await api.delete(`/posts/${id}`,
+      {
         headers: {
           authorization: `Bearer ${token}`
         }
