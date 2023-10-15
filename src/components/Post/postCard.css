@@ -1,20 +1,32 @@
 .pst {
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.336);
+    color: #000000;
     box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
     border-radius: 5px;
     overflow: hidden;
     /* margin: 0px 12px; */
 }
+.cardWrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: justify;
+    justify-content: space-between;
+}
+.cardWrapper > .author{
+    border-top: 1px solid #00000033;
+    margin: 0.4rem;
+    padding: 0.5rem 0;
+    width: calc(100% - 0.8rem);
+}
 .pst a, .pst a:visited{
-    color: #fff;
+    color: #000000;
 }
 .pst h2{
     font-size: 0.8rem;
 }
 .pstText{
-    height: 100%;
     padding: 0.4rem 0.7rem;
+    height: 100%;
 }
 .pst .postdate{
     line-height: 1rem;
@@ -29,23 +41,60 @@
 }
 .pst img{
     width: 100%; 
-    height: 135px; 
+    aspect-ratio: 310/280;
     object-fit: cover;
 }
-
+.userBox{
+    display: flex;
+    justify-content: baseline;
+    text-align: left;
+}
+.userBox > img{
+    width: 1.5rem;
+    border-radius: 100%;
+    margin: 0 0.5rem 0 0;
+}
+.userBox > span > p{
+    margin: 0;
+    padding: 0;
+    line-height: 0.8rem;
+}
 @media screen and (orientation: portrait){
     .pst img{
         border-radius: 5px;
         width: 100%; 
-        min-height: 15vh;
-        max-height: 20vh;
         object-fit: cover;
+    }
+    .userBox > img{
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 100%;
+        margin: 0 0.5rem 0 0;
     }
     .pst h2{
         font-size: 1rem;
     }
     .pst{
-        margin: 0vw 5vw;
+        margin: 2vw;
+    }
+}
+
+@media screen and (max-width: 480px) and (orientation: portrait){
+    .pstText > h2{
+       font-size: 1rem;
+    }
+    .pstText > p{
+        font-size: 0.8rem;
+    }
+    .phoneCard{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0rem;
+    }
+    .phoneCard > img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
