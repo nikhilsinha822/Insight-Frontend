@@ -13,28 +13,31 @@ const Home = () => {
       <Carousel />
       {
         isLoading ?
-          <div className="loader" style={{color: "white"}}>
+          <div className="loader" style={{ color: "white" }}>
             <img src={loader} alt="loader" />
             <h5>Hold on getting the latest post for you</h5>
           </div>
           :
           fetchError ?
-            <div className="error" style={{color: "white"}}>
+            <div className="error" style={{ color: "white" }}>
               <BsPlugFill size="3rem" />
               {`Oops! there was a ${fetchError} :(`}
               <br />
               Try refreshing the page or try again later.
             </div>
             :
-            <main className="Home" style={{color: "white"}}>
-              {
-                (searchResults.length ? (
-                  <Feed posts={searchResults} />
-                ) : (
-                  <p className="noPost">No posts to display</p>
-                ))
-              }
-            </main>
+            <>
+              <h2 style={{padding: "1rem 4rem"}}>Popular Posts</h2>
+              <main className="Home" style={{ color: "white" }}>
+                {
+                  (searchResults.length ? (
+                    <Feed posts={searchResults} />
+                  ) : (
+                    <p className="noPost">No posts to display</p>
+                  ))
+                }
+              </main>
+            </>
       }
     </>
   );
