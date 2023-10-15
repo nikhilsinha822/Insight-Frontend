@@ -27,7 +27,7 @@ const Home = () => {
             </div>
             :
             <>
-              <h2 style={{padding: "1rem 4rem"}}>Popular Posts</h2>
+              <h2 style={{width: "100%", display: "flex", textAlign:"center", alignItems:"center", justifyContent:"center", padding:"20px 0"}}>Popular Posts</h2>
               <main className="Home" style={{ color: "white" }}>
                 {
                   (searchResults.length ? (
