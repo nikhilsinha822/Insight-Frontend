@@ -23,6 +23,7 @@
   align-items: center;
   padding: 0.5rem 0;
   color: #efefef;
+  text-shadow: 1px 1px #000000;
 }
 .Nav ul {
   display: flex;
