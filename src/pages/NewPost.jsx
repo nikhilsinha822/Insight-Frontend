@@ -61,6 +61,7 @@ const NewPost = () => {
           id="postImage"
           type="file"
           accept="image/*"
+          required
           onChange={(e) => setImg(e.target.files[0])}
         />
         <label htmlFor="postBody">Post:</label>
