@@ -9,6 +9,7 @@
 }
 .slider > img{
     min-width: 100vw;
+    max-height: 85vh;
     aspect-ratio: 16/8;
     object-fit: cover;
 }
@@ -32,4 +33,10 @@
 }
 .progressBar > .progressItem.active{
     background-color: #0e0d0d;
+}
+
+@media screen and (orientation: portrait){
+    .slider > img{
+        aspect-ratio: 16/10;
+    }
 }

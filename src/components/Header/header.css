@@ -8,7 +8,7 @@
   align-items: center;
   padding: 0rem 2rem;
   width: 100%;
-  background-color: #0b0b0bf7;
+  background-color: rgb(0,0,0,0.2);
 }
 .Header nav{
   display: flex;
@@ -21,6 +21,7 @@
   font-family: 'Dancing Script', cursive;
   display: flex;
   align-items: center;
+  padding: 0.5rem 0;
   color: #efefef;
 }
 .Nav ul {
@@ -30,11 +31,10 @@
 }
 
 .Nav li {
-  padding: 0 0.7rem;
+  padding: 1rem 0.7rem;
 }
 .Nav li a {
   color: #efefef;
-  background-color: #0b0b0b;
   text-decoration: none;
 }
 
@@ -81,19 +81,23 @@ header button {
     color: #ffffff; 
   }
   .Nav{
-    border-radius: 0 0 0 5rem;
-    background-color: #0b0b0b;
+    margin: 2.5rem 0.2rem;
+    border-radius: 5px;
+    background-color: rgb(0,0,0,0.8);
   }
   header nav {
-    transition: 1s;
-    transform: translate(300vw, -300vh);
+    /* transition: 0.5s; */
+    transform: translate(100vw, -100vh);
+  }
+  .Header{
+    background-color: rgb(0,0,0,0);
   }
   .Header nav{
     position: fixed;
     top: 0;
     right: 0;
-    height: 45%;
-    width: 50%;
+    height: 25%;
+    width: 40%;
     flex-direction: column;
     justify-content: center;
   }

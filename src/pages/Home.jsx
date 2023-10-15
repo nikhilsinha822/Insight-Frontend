@@ -3,12 +3,14 @@ import { useContext } from "react";
 import DataContext from "../context/DataContext";
 import loader from '../assets/loader.gif'
 import { BsPlugFill } from "react-icons/bs"
+import Carousel from "../components/carousel/Carousel";
 import './home.css'
 
 const Home = () => {
   const { searchResults, fetchError, isLoading } = useContext(DataContext);
   return (
     <>
+      <Carousel />
       {
         isLoading ?
           <div className="loader" style={{color: "white"}}>

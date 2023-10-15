@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { v4 as uuid } from 'uuid';
 import './carousel.css'
 import { useEffect } from 'react';
 
@@ -50,17 +51,21 @@ const Carousel = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setSliderIndex((prev) => (prev + 1));
-            !(sliderIndex%carousel.length) && setInfiniteCarousel((prev)=>[...prev,...carousel]);
+            if (sliderIndex % carousel.length === 0) { 
+                setInfiniteCarousel((prev) => [...prev, ...carousel]) 
+            }
         }, 3000)
         return () => clearInterval(interval);
     })
     return (
         <div className="carouselContainer">
             <div className="slider" style={{ "--slider-index": `${sliderIndex}` }}>
-                {infiniteCarousel.map((item) => <img key={item.id} src={item.img} alt="carouselItem" />)}
+                {infiniteCarousel.map((item) =>{ 
+                    return <img key={uuid()} src={item.img} alt="carouselItem" />
+                })}
             </div>
             <div className="progressBar">
-                {carousel.map((item, index) => <button key={index} className={`progressItem ${index === sliderIndex%carousel.length && "active"}`} onClick={() => setSliderIndex(index)}></button>)}
+                {carousel.map((item, index) => <button key={item.id} className={`progressItem ${index === sliderIndex % carousel.length && "active"}`} onClick={() => setSliderIndex(index)}></button>)}
             </div>
         </div>
     )
