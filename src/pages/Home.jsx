@@ -1,9 +1,10 @@
 import Feed from "../components/feed";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
-import loader from '../assets/loader.gif'
+// import loader from '../assets/loader.gif'
 import { BsPlugFill } from "react-icons/bs"
 import Carousel from "../components/carousel/Carousel";
+import Loader from "../assets/Loader";
 import './home.css'
 
 const Home = () => {
@@ -14,8 +15,9 @@ const Home = () => {
       {
         isLoading ?
           <div className="loader" style={{ color: "white" }}>
-            <img src={loader} alt="loader" />
-            <h5>Hold on getting the latest post for you</h5>
+            {/* <img src={loader} alt="loader" /> */}
+            <Loader/>
+            <h5 style={{color:"black"}}>Hold on getting the latest post for you</h5>
           </div>
           :
           fetchError ?
