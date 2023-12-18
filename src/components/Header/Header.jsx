@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import './header.css'
 import { useRef } from 'react';
 import { GiHamburgerMenu } from "react-icons/gi"
-import {BsSearch} from "react-icons/bs"
-// import { useAuth0 } from '@auth0/auth0-react';
+import { BsSearch } from "react-icons/bs"
+import { useAuth0 } from '@auth0/auth0-react';
 import useWindowSize from '../../hooks/useWindowSize';
 
-const Header = () => {
+const Header = ({searchbarref}) => {
     const navRef = useRef();
     const { width, height } = useWindowSize();
-    // const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0()
+    const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0()
     function showNavbar() {
         return navRef.current.classList.toggle("responsive_nav");
     }
@@ -23,9 +23,24 @@ const Header = () => {
                     <Link to="/">Home</Link>
                 </li>
                 <li><Link to="/post">Create</Link></li>
-                <li><Link to="/about">Profile</Link></li>
+                {/* <li><Link to="/about">Profile</Link></li> */}
                 <li><Link to="/about">Contact Us</Link></li>
-                <li><Link to="/about"><BsSearch/></Link></li>
+                <li>{
+                    isLoading ? 
+                    <button className="navButton" onClick={() => loginWithRedirect()} disable={true}>Login</button>
+                    :
+                    !isAuthenticated ?
+                        <button className="navButton" onClick={() => loginWithRedirect()}>Login</button>
+                        :
+                        <button className="navButton" onClick={() => logout()}>LogOut</button>
+                }</li>
+                <li><button className="navButton" onClick={()=>{
+                    searchbarref?.current?.scrollIntoView({
+                        behavior: 'smooth',
+                        block: "center"
+                    })
+                    searchbarref?.current?.focus()
+                    }}><BsSearch /></button></li>
             </ul>
             {/* <span>
                 {

@@ -38,6 +38,12 @@
   color: #efefef;
   text-decoration: none;
 }
+.navButton{
+  font-size: 0.8rem;
+}
+.navButton:hover{
+  cursor: pointer;
+}
 
 .Nav li:hover,
 .Nav li:focus,

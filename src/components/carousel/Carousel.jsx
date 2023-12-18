@@ -23,9 +23,9 @@ const Carousel = () => {
         {
             carousel && carousel.length > 0 && <>
                 <div className="carouselContainer">
-                    <div className="slider" style={{ "--slider-index": `${sliderIndex}`, minHeight:"50vh", minWidth:"100vw"}}>
+                    <div className="slider" style={{ "--slider-index": `${sliderIndex}`, minWidth:"100vw"}}>
                         {infiniteCarousel.map((item, idx) => {
-                            return <div key={uuid()} style={{minHeight:"80vh", minWidth:"100vw"}}>
+                            return <div key={uuid()} style={{height:"100%", minWidth:"100%"}}>
                                 <img src={item.image} alt="carouselItem" />
                                 <h1>{item.title}</h1>
                                 <p>{item.datetime.split(' ').slice(0, 3).join(' ')}</p>

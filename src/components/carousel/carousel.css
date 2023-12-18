@@ -4,6 +4,7 @@
 }
 .slider{
     display: flex;
+    min-height:80vh;
     transition: transform 1s ease-in-out;
     transform: translateX(calc(var(--slider-index)*-100vw));
 }
@@ -66,5 +67,9 @@
     }
     .slider > div > h1 {
         font-size: 0.7rem;
+    }
+    .slider{
+        min-height: 25vh;
+        /* max-height: 20vh; */
     }
 }

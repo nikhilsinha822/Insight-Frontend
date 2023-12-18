@@ -1,13 +1,14 @@
 import Feed from "../components/feed";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import DataContext from "../context/DataContext";
 // import loader from '../assets/loader.gif'
 import { BsPlugFill } from "react-icons/bs"
 import Carousel from "../components/carousel/Carousel";
 import Loader from "../assets/Loader";
 import './home.css'
+import SearchBar from "../components/searchBar/searchBar";
 
-const Home = () => {
+const Home = ({searchbarref}) => {
   const { searchResults, fetchError, isLoading } = useContext(DataContext);
   return (
     <>
@@ -16,8 +17,8 @@ const Home = () => {
         isLoading ?
           <div className="loader" style={{ color: "white" }}>
             {/* <img src={loader} alt="loader" /> */}
-            <Loader/>
-            <h5 style={{color:"black"}}>Hold on getting the latest post for you</h5>
+            <Loader />
+            <h5 style={{ color: "black" }}>Hold on getting the latest post for you</h5>
           </div>
           :
           fetchError ?
@@ -29,7 +30,8 @@ const Home = () => {
             </div>
             :
             <>
-              <h2 style={{width: "100%", display: "flex", textAlign:"center", alignItems:"center", justifyContent:"center", padding:"20px 0"}}>Popular Posts</h2>
+              <SearchBar searchbarref={searchbarref}/>
+              <h2 style={{ width: "100%", display: "flex", textAlign: "center", alignItems: "center", justifyContent: "center", padding: "20px 0" }}>Popular Posts</h2>
               <main className="Home" style={{ color: "white" }}>
                 {
                   (searchResults.length ? (

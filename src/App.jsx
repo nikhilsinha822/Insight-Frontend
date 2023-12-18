@@ -1,4 +1,5 @@
 import Home from "./pages/Home";
+import { useRef, useState } from "react";
 import NewPost from "./pages/NewPost";
 import PostPage from "./pages/Post";
 import Missing from "./pages/Missing";
@@ -9,13 +10,14 @@ import EditPost from "./pages/editPost";
 import { DataProvider } from "./context/DataContext";
 
 function App() {
+  const searchbarref = useRef(null)
   return (
     <DataProvider>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+        <Route path="/" element={<Layout searchbarref={searchbarref}/>}>
+          <Route index element={<Home searchbarref={searchbarref}/>} />
           <Route path="post">
-            <Route index element={<NewPost />} />
+            <Route index element={<NewPost/>} />
             <Route path=":id" element={<PostPage />} />
           </Route>
           <Route path="edit/:id" element={<EditPost />} />

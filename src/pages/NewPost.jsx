@@ -15,25 +15,26 @@ const NewPost = () => {
   const [imgId, setImgId] = useState([]);
   const Navigate = useNavigate();
   const { isAuthenticated, user, loginWithRedirect, getAccessTokenSilently } = useAuth0()
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const handleSubmit = async (e) => {
+    setIsSubmitting(true)
     e.preventDefault();
     const datetime = format(new Date(), "MMMM dd, yyyy pp");
     let data = await generateImageUrl(img);
     const token = await getAccessTokenSilently();
-    const newPost = { title: postTitle, body: postBody, datetime, ...data, user};
+    const newPost = { title: postTitle, body: postBody, datetime, ...data, user };
     console.log(newPost)
     try {
-      const res = await api.post("/posts", 
-      newPost,
-      {
-        headers: {
-          authorization: `Bearer ${token}`
+      const res = await api.post("/posts",
+        newPost,
+        {
+          headers: {
+            authorization: `Bearer ${token}`
+          }
         }
-      }
       );
       const data = res.data;
-      const allPosts = [...posts, { ...newPost, ...data}];
+      const allPosts = [...posts, { ...newPost, ...data }];
       setPosts(allPosts);
       setPostTitle("");
       setPostBody("");
@@ -41,42 +42,49 @@ const NewPost = () => {
       Navigate("/");
     } catch (err) {
       console.log(`Error: ${err.message}`);
+    } finally {
+      setIsSubmitting(false)
     }
   };
   return <>
-  {
-    isAuthenticated ?
-    <main className="NewPost">
-      <form className="newPostForm" onSubmit={handleSubmit}>
-        <label htmlFor="postTitle">Title:</label>
-        <input
-          id="postTitle"
-          type="text"
-          required
-          value={postTitle}
-          onChange={(e) => setPostTitle(e.target.value)}
-        />
-        <label htmlFor="newImage">Header Image:</label>
-        <input
-          id="postImage"
-          type="file"
-          accept="image/*"
-          required
-          onChange={(e) => setImg(e.target.files[0])}
-        />
-        <label htmlFor="postBody">Post:</label>
-        <Editor
-          content={postBody}
-          setContent={setPostBody}
-          setImgId={setImgId}
-          imgId={imgId}
-        />
-        <button type="submit">Submit</button>
-      </form>
-    </main>
-    :
-    (loginWithRedirect())()
-  }
+    {
+      isAuthenticated ?
+        <main className="NewPost">
+          <form className="newPostForm" onSubmit={handleSubmit}>
+            <label htmlFor="postTitle">Title:</label>
+            <input
+              id="postTitle"
+              type="text"
+              required
+              value={postTitle}
+              onChange={(e) => setPostTitle(e.target.value)}
+            />
+            <label htmlFor="newImage">Header Image:</label>
+            <input
+              id="postImage"
+              type="file"
+              accept="image/*"
+              required
+              onChange={(e) => setImg(e.target.files[0])}
+            />
+            <label htmlFor="postBody">Post:</label>
+            <Editor
+              content={postBody}
+              setContent={setPostBody}
+              setImgId={setImgId}
+              imgId={imgId}
+            />
+            {
+              isSubmitting ? 
+              <div className="loadersmall"></div>
+              :
+              <button type="submit">Submit</button>
+            }
+          </form>
+        </main>
+        :
+        (loginWithRedirect())()
+    }
   </>
 };
 
