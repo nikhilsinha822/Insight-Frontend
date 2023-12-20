@@ -24,10 +24,10 @@ const Header = ({searchbarref}) => {
                 </li>
                 <li><Link to="/post">Create</Link></li>
                 {/* <li><Link to="/about">Profile</Link></li> */}
-                <li><Link to="/about">Contact Us</Link></li>
+                <li><Link to="/contactUs">Contact Us</Link></li>
                 <li>{
                     isLoading ? 
-                    <button className="navButton" onClick={() => loginWithRedirect()} disable={true}>Login</button>
+                    <button className="navButton" onClick={() => loginWithRedirect()} disabled>Login</button>
                     :
                     !isAuthenticated ?
                         <button className="navButton" onClick={() => loginWithRedirect()}>Login</button>

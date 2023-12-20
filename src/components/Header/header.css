@@ -104,7 +104,7 @@ header button {
     position: fixed;
     top: 0;
     right: 0;
-    height: 25%;
+    /* height: 25%; */
     width: 40%;
     flex-direction: column;
     justify-content: center;
@@ -116,5 +116,8 @@ header button {
     position: absolute;
     top: 1.2rem;
     right: 1.2rem;
+  }
+  .navButton{
+    font-size: 1rem;
   }
 }
